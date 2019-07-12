@@ -101,12 +101,3 @@ export async function izmeniIzvestaj(i: IzvestajOBrojuDorucaka) {
     });
     return await res.json(); 
 }
-
-// ne radi
-/*
-export async function obrisiIzvestaj(id: number) {
-    let res = await fetch(baseUrl + `/izvestaj/${id}`, {
-        method: 'DELETE'
-    });
-}
-*/
