@@ -4,7 +4,6 @@ import { IzvestajOBrojuDorucaka } from "../model/IzvestajOBrojuDorucaka";
 const baseUrl = "http://localhost:8080/FpisWS/";
 
 // USLUGA
-
 export async function vratiSveUsluge() {
     let res = await fetch(baseUrl + "/usluga");
     let usluge = await res.json();
