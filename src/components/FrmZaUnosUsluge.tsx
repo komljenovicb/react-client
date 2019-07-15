@@ -52,14 +52,14 @@ class FrmZaUnosUsluge extends Component<Props, State> {
         return (
             <form>
 		<label className="col-form-label">#</label>
-                	<div className="form-row">
-				<div className="form-inline">
-                        		<input type="text" className="form-control" 
-							   name="uslugaID" 
-						           value={this.props.uslugaID || ''} 
-							   onChange={this.handleChange}	
-							   disabled
-				/>							
+                   <div className="form-row">
+			<div className="form-inline">
+                             <input type="text" className="form-control" 
+						name="uslugaID" 
+						value={this.props.uslugaID || ''} 
+					        onChange={this.handleChange}	
+					        disabled
+			/>							
                     </div>
                     <div className="form-group col-md-10">
                         <label className="col-form-label">Naziv usluge</label>
