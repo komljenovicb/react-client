@@ -61,16 +61,16 @@ class Nova extends Component<{}, State> {
       let res = await vratiUslugu(nazivUsluge);
       if(res.error) this.setState({error: res.error});
       else {
-		const usl = new Usluga(res.uslugaID, res.nazivUsluge, res.opisUsluge, res.jedinicaMere);
-		return usl;
-	  }
+	   const usl = new Usluga(res.uslugaID, res.nazivUsluge, res.opisUsluge, res.jedinicaMere);
+	   return usl;
+      }
     } catch(e) {
       this.setState({error: "Network error"});
     }
   }
   
   onDelete = async (id : number) => {
-	try {
+    try {
       await obrisiUslugu(id);
       this.setState({
         usluge: this.state.usluge.filter((usl: Usluga) => usl.uslugaID !== id)
