@@ -11,12 +11,12 @@ export class StavkaIzvestaja {
 	brojDorucaka: number;
 
 	constructor(rbrIzvestaja: number, rbrStavke: number, datum: Date, dan: string, brojDorucaka: number) {
-        this.rbrIzvestaja = rbrIzvestaja;
+        	this.rbrIzvestaja = rbrIzvestaja;
 		this.rbrStavke = rbrStavke;
-        this.datum = datum;
+        	this.datum = datum;
 		this.dan = dan;
 		this.brojDorucaka = brojDorucaka;
-    }
+    	}
 	
 }
 
