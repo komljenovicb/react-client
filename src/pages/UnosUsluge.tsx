@@ -15,7 +15,7 @@ interface State {
 class UnosUsluge extends Component<{}, State> {
 
   state = {
-	uslugaID: 0,
+    uslugaID: 0,
     usluge: [],
     jediniceMere: [],
     selectedRow: null,
@@ -23,7 +23,7 @@ class UnosUsluge extends Component<{}, State> {
   }
 
   async vratiIDUsluge() {
-	try {
+    try {
       this.setState({uslugaID: await vratiIDUsluge()});
     } catch (e) {
       console.log(e);
@@ -39,7 +39,7 @@ class UnosUsluge extends Component<{}, State> {
   }
   
   async componentDidMount() {
-	await this.vratiIDUsluge();
+    await this.vratiIDUsluge();
     await this.vratiSveJM();
   }
   
@@ -47,10 +47,9 @@ class UnosUsluge extends Component<{}, State> {
     try {
       let res = await sacuvajUslugu(usluge);
       if(res.error) {
-		  this.setState({error: res.error});
+	     this.setState({error: res.error});
 	  } else {
-		  this.setState({usluge: [...this.state.usluge, {...res, jedinicaMere: res.jedinicaMere.sifraJM}]});
-		 
+	     this.setState({usluge: [...this.state.usluge, {...res, jedinicaMere: res.jedinicaMere.sifraJM}]}); 
 	  }
     } catch(e) {
       this.setState({error: "Network error"});
@@ -64,7 +63,7 @@ class UnosUsluge extends Component<{}, State> {
           <h1 className="display-4">Unos usluge </h1>
 		  <div className="row">
             <FrmZaUnosUsluge
-			  uslugaID={this.state.uslugaID}
+	      uslugaID={this.state.uslugaID}
               jediniceMere={this.state.jediniceMere}
               usluge={this.state.usluge}
               onAdd={this.onAdd}
