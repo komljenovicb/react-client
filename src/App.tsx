@@ -29,7 +29,7 @@ class App extends Component {
 			  <Route path="/izmenausluge" component={IzmenaUsluge} />
 			</div>
 			<div className="footer">
-					<h6>&copy;FON, 2019</h6>
+				<h6>&copy;FON, 2019</h6>
 			</div>
 		  </div>
       </Router>
