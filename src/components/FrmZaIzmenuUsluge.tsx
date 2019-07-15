@@ -81,38 +81,37 @@ class FrmZaIzmenuUsluge extends Component<Props, State> {
     render() {
         return (
             <form>
-				<label className="col-form-label">#</label>
-                <div className="form-row">
-					<div className="form-inline">
-                        <input type="text" className="form-control" 
-								name="uslugaID" 
-								value={this.state.uslugaID || ''} 
-								onChange={this.handleChange}	
-							    disabled
-						/>							
-                    </div>
-					<div className="form-group col-md-10">
+		<label className="col-form-label">#</label>
+               	        <div className="form-row">
+				<div className="form-inline">
+                        		<input type="text" className="form-control" 
+							   name="uslugaID" 
+							   value={this.state.uslugaID || ''} 
+							   onChange={this.handleChange}	
+							   disabled
+					/>							
+                    	</div>
+			<div className="form-group col-md-10">
                         <label className="col-form-label">Unesite naziv usluge:</label>
                         <input type="text" className="form-control" 
-								name="nazivUsluge" 
-								value={this.state.nazivUsluge} 
-								onChange={this.handleChange} 	
-								required
+							    name="nazivUsluge" 
+							    value={this.state.nazivUsluge} 
+							    onChange={this.handleChange} 	
+							    required
 						/>	
 						<br></br>
-						<button id="btn-find" 
-										className="btn btn-secondary float-right" 
-											onClick={this.onFind}>
-												<i className="fa fa-search">
-													</i>Pronađi uslugu</button>
-                    </div>
-					<div className="form-group col-md-10">
-						<label className="col-form-label">Opis usluge</label>
-                        <textarea className="form-control" 
-										   name="opisUsluge" 
-										   value={this.state.opisUsluge} 
-										   onChange={this.handleChange}
-										   required/>
+						<button id="btn-find" className="btn btn-secondary float-right" 
+							onClick={this.onFind}>
+							<i className="fa fa-search">
+							</i>Pronađi uslugu</button>
+                    	</div>
+			<div className="form-group col-md-10">
+				<label className="col-form-label">Opis usluge</label>
+                        		<textarea className="form-control" 
+							 name="opisUsluge" 
+						         value={this.state.opisUsluge} 
+							 onChange={this.handleChange}
+							 required/>
                     </div>
                     <div className="form-group col-md-2.5">
                         <label className="col-form-label">Jedinica mere</label>
@@ -126,22 +125,20 @@ class FrmZaIzmenuUsluge extends Component<Props, State> {
                         </select>
                     </div>
                 </div>
-				<div className="form-row">
+		<div className="form-row">
                     <div className="col-md-10">   
-						<button id="btn-change" 
-								className="btn btn-secondary float-right" 
-								onClick={this.onCancel}><i className="fa fa-close">
-								</i>Poništi</button>
-						<button id="btn-obrisi" 
-								className="btn btn-secondary float-right" 
-								onClick={this.onDelete}>
-								<i className="fa fa-minus">
-								</i>Obriši uslugu</button>
-						<button id="btn-add" 
-								className="btn btn-secondary float-right" 
-								onClick={this.onUpdate}><i className="fa fa-plus">
-								</i>Sačuvaj uslugu</button>
-					</div>
+				<button id="btn-change" 
+					className="btn btn-secondary float-right" 
+					onClick={this.onCancel}><i className="fa fa-close">
+					</i>Poništi</button>
+					<button id="btn-obrisi" className="btn btn-secondary float-right" 
+						onClick={this.onDelete}>
+						<i className="fa fa-minus">
+						</i>Obriši uslugu</button>
+					<button id="btn-add" className="btn btn-secondary float-right" 
+							     onClick={this.onUpdate}><i className="fa fa-plus">
+					</i>Sačuvaj uslugu</button>
+		   </div>
                 </div>
             </form>	
         );
