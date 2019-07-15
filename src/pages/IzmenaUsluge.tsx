@@ -20,10 +20,10 @@ class Nova extends Component<{}, State> {
 
   state = {
     usluge: [],
-	uslugaID: 0,
-	nazivUsluge: '',
-	opisUsluge: '',
-	jedinicaMere: 0,
+    uslugaID: 0,
+    nazivUsluge: '',
+    opisUsluge: '',
+    jedinicaMere: 0,
     jediniceMere: [],
     selectedRow: null,
     error: ''
@@ -45,11 +45,11 @@ class Nova extends Component<{}, State> {
     try {
       let res = await izmeniUslugu(usluge);
       if(res.error) { 
-		this.setState({error: res.error});
+	    this.setState({error: res.error});
 	  }
       else {
-		  this.setState({usluge: [...this.state.usluge, {...res, 
-		  jedinicaMere: res.jedinicaMere.sifraJM}]});
+            this.setState({usluge: [...this.state.usluge, {...res, 
+	    jedinicaMere: res.jedinicaMere.sifraJM}]});
 	  }
     } catch(e) {
       this.setState({error: "Network error"});
@@ -61,11 +61,8 @@ class Nova extends Component<{}, State> {
       let res = await vratiUslugu(nazivUsluge);
       if(res.error) this.setState({error: res.error});
       else {
-		  const usl = new Usluga(res.uslugaID,
-								 res.nazivUsluge, 
-								 res.opisUsluge, 
-								 res.jedinicaMere);
-		  return usl;
+		const usl = new Usluga(res.uslugaID, res.nazivUsluge, res.opisUsluge, res.jedinicaMere);
+		return usl;
 	  }
     } catch(e) {
       this.setState({error: "Network error"});
@@ -88,18 +85,17 @@ class Nova extends Component<{}, State> {
       <>
         <div className="container">
           <h2 className="display-4">Izmena usluge</h2>
-		  <div className="row">
-		  
+		  <div className="row">  
             <FrmZaIzmenuUsluge 
-			  uslugaID={this.state.uslugaID}
-			  opisUsluge={this.state.opisUsluge}
-			  nazivUsluge={this.state.nazivUsluge}
-			  jedinicaMere={this.state.jedinicaMere}
+	      uslugaID={this.state.uslugaID}
+	      opisUsluge={this.state.opisUsluge}
+	      nazivUsluge={this.state.nazivUsluge}
+              jedinicaMere={this.state.jedinicaMere}
               jediniceMere={this.state.jediniceMere}
               usluge={this.state.usluge}
               onUpdate={this.onUpdate}
-			  onFind={this.onFind}
-			  onDelete={this.onDelete}
+	      onFind={this.onFind}
+              onDelete={this.onDelete}
             />
           </div>
         </div>
