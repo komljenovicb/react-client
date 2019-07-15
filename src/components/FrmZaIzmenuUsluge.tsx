@@ -3,15 +3,15 @@ import { JedinicaMere } from '../model/JedinicaMere';
 import { Usluga } from '../model/Usluga';
 
 interface Props {
-	uslugaID: number;
-	nazivUsluge: string;
-	opisUsluge: string;
-	jedinicaMere: number;
+    uslugaID: number;
+    nazivUsluge: string;
+    opisUsluge: string;
+    jedinicaMere: number;
     jediniceMere: JedinicaMere[];
     usluge: Usluga[];
     onUpdate: (usluge: Usluga) => Promise<any>;
-	onFind: (nazivUsluge: string) => Promise<any>;
-	onDelete: (uslugaID: number) => Promise<any>;
+    onFind: (nazivUsluge: string) => Promise<any>;
+    onDelete: (uslugaID: number) => Promise<any>;
 }
 
 interface State {
@@ -41,44 +41,41 @@ class FrmZaIzmenuUsluge extends Component<Props, State> {
         if (uslugaID != 0 && nazivUsluge !== '' && opisUsluge !== '' && jedinicaMere != 0) {
             await this.props.onUpdate(new Usluga(uslugaID, nazivUsluge, 
 				opisUsluge, Number(jedinicaMere)));
-			alert('Usluga sa ID-jem ' + this.state.uslugaID + ' je izmenjena');
+		alert('Usluga sa ID-jem ' + this.state.uslugaID + ' je izmenjena');
         } else {
-			alert('Neuspešna izmena usluge!');
-		}
+		alert('Neuspešna izmena usluge!');
+	}
     }
 	
-	onFind = async (e: any) => {
-		e.preventDefault();
-		const kriterijum = this.state.nazivUsluge;
-		if (kriterijum != '') {
-			const usl = await this.props.onFind(kriterijum);
-			if(usl != null) {
-				this.setState({ uslugaID: usl.uslugaID,
-								nazivUsluge: usl.nazivUsluge,
+    onFind = async (e: any) => {
+	e.preventDefault();
+	const kriterijum = this.state.nazivUsluge;
+	if (kriterijum != '') {
+		const usl = await this.props.onFind(kriterijum);
+		if(usl != null) {
+			this.setState({ uslugaID: usl.uslugaID, nazivUsluge: usl.nazivUsluge,
 								opisUsluge: usl.opisUsluge, 
 								jedinicaMere: usl.jedinicaMere.sifraJM});
-			}
-        } else {
-			alert('Unesite naziv usluge!');
 		}
+        } else {
+		alert('Unesite naziv usluge!');
+	        }
 	}
 
-	onDelete = async(e: any) => {
+    onDelete = async(e: any) => {
 		alert('Usluga sa ID-jem ' + this.state.uslugaID + ' je obrisana');
-        e.preventDefault();
+       		e.preventDefault();
 		const id = this.state.uslugaID;
-        await this.props.onDelete(id);
-		this.setState({uslugaID: 0,
-					   nazivUsluge: '',
-					   opisUsluge: '', 
-					   jedinicaMere: 0});
+        	await this.props.onDelete(id);
+		this.setState({uslugaID: 0, nazivUsluge: '',
+					    opisUsluge: '', 
+					    jedinicaMere: 0});
 	}
 	
-	onCancel = async(e: any) => {
-		this.setState({uslugaID: 0,
-					   nazivUsluge: '',
-					   opisUsluge: '', 
-					   jedinicaMere: 0});
+    onCancel = async(e: any) => {
+		this.setState({uslugaID: 0, nazivUsluge: '',
+					    opisUsluge: '', 
+					    jedinicaMere: 0});
 	}
 	
     render() {
